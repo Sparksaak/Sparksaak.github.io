@@ -1,0 +1,326 @@
+/* Color Palette */
+:root {
+    --primary-color: #38761D;
+    --secondary-color: #F0FFF0;
+    --accent-color: #8FBC8F;
+    --text-color: #335B33;
+    --card-bg: #FFFFFF;
+    --card-bg-selected: #E0EEE0;
+    --navbar-bg: rgba(240, 255, 240, 0.8);
+    --navbar-bg-scrolled: rgba(220, 240, 220, 0.7);
+    --scroll: #8FBC8F;
+}
+
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    background-color: var(--secondary-color);
+    overflow-x: hidden;
+}
+
+section {
+    padding: 100px 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.btn {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+    transition: all 0.3s ease;
+    padding: 24px 30px;
+    font-size: 1.2rem;
+    border-radius: 50%;
+}
+
+.btn:hover {
+    background-color: white;
+    border-color: white;
+    color: var(--primary-color);
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: var(--navbar-bg);
+    padding: 1.4rem;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: background-color 0.3s ease;
+}
+
+.navbar.scrolled {
+    background-color: var(--navbar-bg-scrolled);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+}
+
+.navbar-nav .nav-link {
+    margin-left: 1.8rem;
+    font-weight: 500;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+    color: var(--primary-color);
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--accent-color);
+}
+
+.navbar-toggler {
+    border: none;
+    padding: 0.25rem 0.5rem;
+    background-color: transparent;
+    cursor: pointer;
+    position: relative;
+}
+
+.navbar-toggler-icon {
+    background-image: none;
+    width: 25px;
+    height: 2px;
+    background-color: transparent;
+    display: block;
+    margin: 5px 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+    content: "";
+    width: 25px;
+    height: 2px;
+    background-color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    transition: transform 0.3s ease;
+}
+
+.navbar-toggler-icon::before {
+    top: -7px;
+}
+
+.navbar-toggler-icon::after {
+    top: 7px
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon::before {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon::after {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Intro Section */
+.intro {
+    background-image: linear-gradient(rgba(220, 240, 220, 0.9), rgba(220, 240, 220, 0.3)), url('intro-image.jpg'); /* Light green overlay */
+    background-size: cover;
+    background-position: center;
+    color: var(--text-color);
+    text-align: center;
+    padding: 200px 0;
+}
+
+.intro h1 {
+    font-size: 4.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    animation: fadeInUp 1s ease-in-out;
+    color: var(--primary-color);
+}
+
+.intro p {
+    font-size: 1.6rem;
+    margin-bottom: 60px;
+    line-height: 1.7;
+    animation: fadeInUp 1.2s ease-in-out;
+    color: var(--text-color);
+}
+
+/* Common Section Headings */
+.home h2, 
+.greenhouse-gas h2,
+.cause-increase h2,
+.gov h2,
+.people h2 {
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+    animation: fadeInUp 1s ease-in-out;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.home p, 
+.greenhouse-gas p,
+.cause-increase p,
+.gov p,
+.people p {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    opacity: 0.9;
+    color: var(--text-color);
+}
+
+/* Home Section */
+.home img {
+    border-radius: 50%;
+    margin: 30px;
+    width: 150px;
+    animation: fadeInUp 1s ease-in-out;
+    /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); */
+    object-fit: cover;
+    aspect-ratio: 1/1;
+}
+
+/* Greenhouse Gas Increase Section */
+.greenhouse-gas img {
+    border-radius: 50%;
+    margin: 30px;
+    width: 1000px;
+    animation: fadeInUp 1s ease-in-out;
+    /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); */
+    object-fit: cover;
+}
+
+/* Card Items */
+.cause-increase .row,
+.gov .row,
+.people .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    overflow-x: auto;
+    padding: 0 15px;
+}
+
+.cause-increase .bullet {
+    flex: 1 0 100px;
+    padding: 20px;
+}
+
+.gov .bullet {
+    flex: 1 0 400px;
+}
+
+.people .bullet {
+    flex: 1 0 250px;
+}
+
+.bullet::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background-color: rgba(143, 188, 143, 0.3);
+}
+
+.bullet:hover::before {
+    opacity: 1;
+}
+
+.bullet {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    margin: 15px;
+}
+
+.bullet h3 {
+    color: var(--accent-color);
+    margin-bottom: 25px;
+    font-size: 1.7rem;
+    font-weight: 600;
+}
+
+.bullet p {
+    opacity: 0.9;
+    line-height: 1.9;
+    font-size: 1.1rem;
+}
+
+.bullet:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    background-color: var(--card-bg-selected);
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--scroll);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2E6515;
+}
+
+::-webkit-scrollbar-corner {
+    background: var(--scroll);
+}
+
+::-webkit-scrollbar-thumb {
+    transition: background-color 0.3s ease;
+}
+
+/* Responsive Design adjustments */
+@media (max-width: 768px) {
+    .intro h1 {
+        font-size: 2rem;
+    }
+
+    .intro p {
+        font-size: 1rem;
+    }
+
+    .greenhouse-gas img {
+        max-width: 200px;
+    }
+
+    .bullet {
+        width: calc(50% - 30px);
+    }
+}
+
+@media (max-width: 480px) {
+    .bullet {
+        width: calc(100% - 30px);
+    }
+}
